@@ -1,0 +1,8 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+.wrapper {
+    @apply bg-black;
+}
+
+@import "tailwindcss/utilities";
