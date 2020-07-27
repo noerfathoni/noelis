@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noelis | Noelis Agenda Harian Anda</title>
+    <link rel="stylesheet" href="/dist/dist.bundle.css">
+</head>
+<body>
+    <div class="min-h-screen p-4 lg:p-6 flex flex-col bg-indigo-500">
+        <div class="flex flex-col w-full lg:w-4/12 mx-auto mb-4">
+            <h1 class="font-bold text-3xl text-center mb-2 text-white underline">Noelis</h1>
+            <h2 class="mb-2 text-center font-semibold text-white">"Noelis Agenda Harian Anda"</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full lg:w-8/12 mx-auto">
+            <div class="card-add-agenda open-modal">
+                <div class="card-container">
+                    <button class="add-btn">+</button> 
+                    <span class="add-btn-label">Tambah Agenda</span>
+                </div>
+            </div>
+            <% for (var i = 0; i < agenda.length; i++) { %>
+            <div class="card open-modal-edit" data-id="<%= agenda[i].id %>">
+                <h4 class="card-title"><%= agenda[i].title %></h4>
+                <p class="card-body"><%= agenda[i].description %></p>
+                <p class="card-date">~ <%= agenda[i].date %></p>
+            </div>
+            <% } %>
+        </div>
+        <!-- <button class="fab-btn">+</button>  -->
+    </div>
+    <div class="modal-overlay hidden" id="agenda-action-modal">
+        <div class="modal">
+            <div class="modal-title">
+                <h4>Tambah Agenda</h4>
+            </div>
+            <form method="post" action="/simpan-agenda">
+                <div class="modal-body">
+                    <input type="hidden" id="agenda-id">
+                    <div class="form-group">
+                        <label for="agenda-title">Judul Agenda:</label>
+                        <input type="text" name="agenda_title" id="agenda-title" class="form-control" placeholder="Judul Agenda">
+                    </div>
+                    <div class="form-group">
+                        <label for="agenda-description">Isi Agenda:</label>
+                        <textarea class="form-control" id="agenda-description" name="agenda_description" placeholder="Isi Agenda"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="agenda-time">Tanggal Agenda:</label>
+                        <input type="datetime" name="agenda_time" id="agenda-time" class="form-control" placeholder="Tanggal Agenda">
+                    </div>
+                </div>
+                <div class="modal-action">
+                    <button type="submit" id="submit-agenda" class="btn btn-primary">Simpan</button>
+                    <button type="button" class="btn close-modal">Tutup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/dist/dist.bundle.js"></script>
+</body>
+</html>

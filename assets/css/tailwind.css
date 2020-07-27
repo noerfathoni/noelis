@@ -1,8 +1,141 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 
-.wrapper {
-    @apply bg-black;
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    color: #2D3748;
+}
+button {
+    border: none;
+}
+button:active,
+button:focus {
+    outline: none;
+}
+
+.modal-overlay {
+    @apply w-full h-full fixed flex items-center justify-center;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+    @apply w-11/12 p-4 bg-white m-auto rounded-lg;
+}
+
+.modal .modal-title {
+    @apply text-indigo-600 font-bold text-2xl;
+}
+
+.modal .modal-title h4 {
+    @apply text-indigo-600;
+}
+
+.modal .modal-body {
+    @apply my-4;
+}
+
+.form-group {
+    @apply w-full flex flex-col py-2;
+}
+
+.form-group label {
+    @apply font-bold pb-1;
+}
+
+.form-group .form-control {
+    @apply w-full p-2 rounded-md;
+    border: solid 2px #CBD5E0;
+}
+
+.form-group .form-control:focus {
+    border: solid 2px #667EEA;
+    outline: none;
+}
+
+.btn {
+    @apply bg-gray-400 text-gray-900 px-4 py-2 font-bold rounded-md;
+}
+
+.btn.btn-primary {
+    @apply bg-indigo-500 text-white;
+}
+
+.btn:focus,
+.btn:active {
+    outline: none;
+}
+
+.btn:active {
+    @apply bg-gray-500;
+}
+
+.btn.btn-primary:active {
+    @apply bg-indigo-600;
+}
+
+.fab-btn {
+    @apply fixed bg-gray-200 flex items-center justify-center rounded-full w-16 h-16 text-4xl text-indigo-500 font-bold shadow-lg;
+    bottom: 1rem; right: 1rem;
+}
+
+.card {
+    @apply bg-white shadow-lg p-6 rounded-lg h-56;
+    min-height: 16rem;
+}
+
+.card:hover {
+    @apply shadow-xl bg-gray-300 cursor-pointer;
+}
+
+.card .card-title {
+    @apply font-bold text-xl mb-2 text-indigo-500;
+}
+
+.card .card-body {
+    @apply mb-3;
+}
+
+.card .card-date {
+    @apply text-gray-500 italic;
+}
+
+.card-add-agenda {
+    @apply flex flex-col items-center justify-center bg-white shadow-lg p-6 rounded-lg;
+}
+
+.card-add-agenda:hover {
+    @apply shadow-xl bg-gray-300 cursor-pointer;
+}
+
+.card-add-agenda .card-container {
+    @apply flex flex-col items-center justify-center w-full rounded-lg h-full p-8;
+    border: dashed 2px #CBD5E0;
+}
+
+.card-add-agenda .add-btn {
+    @apply bg-gray-200 flex items-center justify-center rounded-full w-20 h-20 text-6xl text-indigo-500 font-bold mb-4;
+}
+
+.card-add-agenda .add-btn-label {
+    @apply text-xl font-semibold;
+}
+
+@screen lg {
+    .modal {
+        @apply w-4/12;
+    }
+    
+    .fab-btn {
+        @apply hidden;
+    }
+
+    .card-add-agenda {
+        @apply block;
+    }
 }
 
 @import "tailwindcss/utilities";
